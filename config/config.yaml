@@ -1,0 +1,37 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion/data
+
+data_validation:
+  root_dir: artifacts/data_validation
+  data_dirs:
+    features: artifacts/data_ingestion/data/features.csv
+    stores: artifacts/data_ingestion/data/stores.csv
+    train: artifacts/data_ingestion/data/train.csv
+    test: artifacts/data_ingestion/data/test.csv
+  status_file: artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_dirs:
+    features: artifacts/data_ingestion/data/features.csv
+    stores: artifacts/data_ingestion/data/stores.csv
+    train: artifacts/data_ingestion/data/train.csv
+    test: artifacts/data_ingestion/data/test.csv
+
+model_training:
+  root_dir: artifacts/model_training
+  train_data_path: artifacts/data_transformation/final_train_data.csv
+  test_data_path: artifacts/data_transformation/final_test_data.csv
+  pipeline_name: lgbmr_regressor_pipeline.pkl
+  model_name: lgbmr_regressor.pkl
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  model_path: artifacts/model_training/lgbmr_regressor.pkl
+  pipeline_path: artifacts/model_training/lgbmr_regressor_pipeline.pkl
+  test_data_path: artifacts/data_transformation/final_test_data.csv
+  evaluation_metrics_path: artifacts/model_evaluation/metrics.json
