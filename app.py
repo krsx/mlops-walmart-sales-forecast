@@ -1,5 +1,5 @@
-from walmart_sales_forecasting import logger
-from walmart_sales_forecasting.utils.common import create_directories
+from src.walmart_sales_forecasting import logger
+from src.walmart_sales_forecasting.utils.common import create_directories
 import warnings
 import base64
 import io
@@ -27,6 +27,7 @@ st.set_page_config(
 st.title("Walmart Sales Forecasting")
 
 if st.button("Run Simulation"):
+    st.divider()
     with st.spinner("Simulation is starting..."):
 
         plot_dates = []
@@ -155,7 +156,7 @@ if st.button("Run Simulation"):
             logger.info(
                 f"Prediction completed. Metrics logged for {date} batch")
 
-            plot_dates.append(str(date)[5:])
+            plot_dates.append(date)
             r2_scores.append(r2)
             rmse_scores.append(rmse)
             mae_scores.append(mae)

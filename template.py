@@ -23,7 +23,7 @@ file_list = [
     "config/schema.yaml",
     "main.py",
     "app.py",
-    "DockerFile",
+    "Dockerfile",
     "requirements.txt",
     "setup.py",
     "research/trials.ipynb"
